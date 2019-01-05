@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sqlmap">
+	<select id="getUser" parameterType="Integer" resultType="com.xk.javabean.User">
+		select * from user where id = #{id}
+	</select>
+	<insert id="addUser" parameterType="com.xk.javabean.User">
+		insert into user(username,password,grade,email) values(#{username}),(#{password}),(#{grade}),(#{email})
+	</insert>
+	<delete id="deleteUser" parameterType="Integer">
+		delete from user where id = #{id}
+	</delete>
+	<update id="updateUser" parameterType="String">
+		delete update user set username=#{username},password=#{password},grade=#{grade},email=#{email}
+		where id = #{id}
+	</update>
+	<select id="getAllUser" resultType="com.xk.javabean.User">
+		select * from user
+	</select>
+</mapper>
